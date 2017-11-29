@@ -1,0 +1,47 @@
+.text-left {
+    text-align: left;
+}
+
+.text-05 {
+    font-size: 0.50em !important;
+}
+
+.text-07 {
+    font-size: 0.75em !important;
+}
+
+.text-13 {
+    font-size: 1.3em !important;
+}
+
+.text-bold {
+    font-weight: 600 !important;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.half {
+    float: left;
+    width: 50%;
+}
+
+.slides a {
+    font-size: 0.4em !important;
+    display: block !important;
+    text-align: left;
+}
+
+.slides img {
+    margin: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
