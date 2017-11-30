@@ -50,8 +50,3 @@ N+1 => 2
 ```php
 $books = App\Book::with('author')->get();
 ```
-+++
-## Resources
-https://laravel.com/docs/5.5/queues
-https://laravel.com/docs/5.5/eloquent-relationships#eager-loading
-https://blog.frankdejonge.nl/parallelise-synchronous-business-processes/

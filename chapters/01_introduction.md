@@ -8,8 +8,8 @@
 $speaker = new Nerd();
 $speaker->fullName = 'Riccardo Scasseddu';
 $speaker->twitterHandle = '@ennetech';
-$speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->education = 'Writing thesis entitled `hacking ca(n|r)s`';
+$speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->roles = ['Full Stack Developer', 'DevOps'];
 $speaker->wannaBe = 'System architect';
 $speaker->talkSpeed = 1.2;

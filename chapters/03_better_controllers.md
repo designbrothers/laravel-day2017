@@ -66,9 +66,3 @@ Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $
     return new UserResource($user);
 });
 ```
-+++
-
-## Resources
-https://laravel.com/docs/5.5/routing#route-model-binding
-https://laravel.com/docs/5.5/eloquent-resources
-https://laravel.com/docs/5.5/validation#creating-form-requests

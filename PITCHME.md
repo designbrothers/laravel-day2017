@@ -17,8 +17,8 @@ www.playmoove.com
 $speaker = new Nerd();
 $speaker->fullName = 'Riccardo Scasseddu';
 $speaker->twitterHandle = '@ennetech';
-$speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->education = 'Writing thesis entitled `hacking ca(n|r)s`';
+$speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->roles = ['Full Stack Developer', 'DevOps'];
 $speaker->wannaBe = 'System architect';
 $speaker->talkSpeed = 1.2;
@@ -33,13 +33,15 @@ $speaker->start();
 
 ---
 @title[Before we start]
-### Software in 2017
+### Developing software in 2017
 <p class="fragment text-left text-07">Built software with colleagues, not against them</p>
 <p class="fragment text-left text-07">Balance technical debt and rapid development</p>
 <p class="fragment text-left text-07">Do not overthink, use prototypes to explore</p>
 <p class="fragment text-left text-07">Automate all the things</p>
 <p class="fragment text-left text-07">Document REST api with proper tools (Word is not a proper tool)</p>
 <p class="fragment text-left text-07">Use base classes</p>
+<p class="fragment text-left text-07">Use static analysis tools (eg.: sonarlint, phpspec, phpcs)</p>
+<p class="fragment text-left text-07">Set up a pipeline</p>
 
 <span style="font-size:0.6em; color:gray">SIMPLE</span> |
 <span style="font-size:0.6em; color:gray">EXTENSIBLE</span> |
@@ -116,12 +118,6 @@ Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $
     return new UserResource($user);
 });
 ```
-+++
-
-## Resources
-https://laravel.com/docs/5.5/routing#route-model-binding
-https://laravel.com/docs/5.5/eloquent-resources
-https://laravel.com/docs/5.5/validation#creating-form-requests
 ---
 @title[Response time]
 # Enhance response time
@@ -175,11 +171,6 @@ N+1 => 2
 ```php
 $books = App\Book::with('author')->get();
 ```
-+++
-## Resources
-https://laravel.com/docs/5.5/queues
-https://laravel.com/docs/5.5/eloquent-relationships#eager-loading
-https://blog.frankdejonge.nl/parallelise-synchronous-business-processes/
 ---
 @title[Write better code]
 # Starve for better code
@@ -320,14 +311,6 @@ throw new ErrorException();
 ```php
 throw new PaymentFailedException($reason);
 ```
-+++
-## Resources
-https://laravel.com/docs/5.5/errors#report-method
-https://laravel.com/docs/5.5/errors#render-method
-https://laravel.com/docs/5.5/errors#renderable-exceptions
-https://github.com/lucid-architecture/laravel
-http://laravel-italia.it/articoli/principi-solid-in-php/introduzione
-https://medium.com/@enne/exception-handling-for-json-endpoints-in-a-laravel-5-application-95971c548f15
 ---
 @title[Questions]
 ## Developers are humans
@@ -376,3 +359,23 @@ if ($reservation->buildCurrentBooking()) {
 ---
 @title[Questions]
 # Questions?
+---
+@title[Questions]
+## resources
+https://bjurr.com/continuous-integration-with-bitbucket-server-and-jenkins/
+## better controllers resources
+https://laravel.com/docs/5.5/routing#route-model-binding
+https://laravel.com/docs/5.5/eloquent-resources
+https://laravel.com/docs/5.5/validation#creating-form-requests
+## response time resources
+https://laravel.com/docs/5.5/queues
+https://laravel.com/docs/5.5/eloquent-relationships#eager-loading
+https://blog.frankdejonge.nl/parallelise-synchronous-business-processes/
+## better code resources
+https://laravel.com/docs/5.5/errors#report-method
+https://laravel.com/docs/5.5/errors#render-method
+https://laravel.com/docs/5.5/errors#renderable-exceptions
+https://github.com/lucid-architecture/laravel
+http://laravel-italia.it/articoli/principi-solid-in-php/introduzione
+https://medium.com/@enne/exception-handling-for-json-endpoints-in-a-laravel-5-application-95971c548f15
+---
