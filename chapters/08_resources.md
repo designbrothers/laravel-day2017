@@ -16,3 +16,4 @@ https://laravel.com/docs/5.5/errors#renderable-exceptions
 https://github.com/lucid-architecture/laravel
 http://laravel-italia.it/articoli/principi-solid-in-php/introduzione
 https://medium.com/@enne/exception-handling-for-json-endpoints-in-a-laravel-5-application-95971c548f15
+https://customlaravel.com/

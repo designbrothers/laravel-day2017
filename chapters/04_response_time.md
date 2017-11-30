@@ -12,26 +12,13 @@
 +++
 @title[Queues]
 ### Queues
-
+### Bad
 ```php
-class MyJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    protected $payload;
-
-    public function __construct($payload)
-    {
-        $this->payload = $payload;
-    }
-
-    public function handle($processor)
-    {
-        sleep(1000)
-    }
-}
-
-dispatch(new MyJob($payload));
+ExampleManager::updateStatusOnExternalService($itemId);
+```
+### Good
+```php
+dispatch(new UpdateStatusOnExternalService($item));
 ```
 +++
 @title[Eloquent eager loading]

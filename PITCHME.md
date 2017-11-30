@@ -76,7 +76,7 @@ Route::get('api/users/{user}', function () {
 ```
 ### Good
 ```php
-Route::get('api/users/{user}', function (App\Models\User $user) {
+Route::get('api/users/{user}', function (User $user) {
     // Do something with the user
 });
 ```
@@ -142,26 +142,13 @@ Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $
 +++
 @title[Queues]
 ### Queues
-
+### Bad
 ```php
-class MyJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    protected $payload;
-
-    public function __construct($payload)
-    {
-        $this->payload = $payload;
-    }
-
-    public function handle($processor)
-    {
-        sleep(1000)
-    }
-}
-
-dispatch(new MyJob($payload));
+ExampleManager::updateStatusOnExternalService($itemId);
+```
+### Good
+```php
+dispatch(new UpdateStatusOnExternalService($item));
 ```
 +++
 @title[Eloquent eager loading]
@@ -390,5 +377,6 @@ https://laravel.com/docs/5.5/errors#renderable-exceptions
 https://github.com/lucid-architecture/laravel
 http://laravel-italia.it/articoli/principi-solid-in-php/introduzione
 https://medium.com/@enne/exception-handling-for-json-endpoints-in-a-laravel-5-application-95971c548f15
+https://customlaravel.com/
 
 ---

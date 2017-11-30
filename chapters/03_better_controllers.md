@@ -24,7 +24,7 @@ Route::get('api/users/{user}', function () {
 ```
 ### Good
 ```php
-Route::get('api/users/{user}', function (App\Models\User $user) {
+Route::get('api/users/{user}', function (User $user) {
     // Do something with the user
 });
 ```
