@@ -1,15 +1,15 @@
 @title[Questions]
-## resources
+#### resources
 https://bjurr.com/continuous-integration-with-bitbucket-server-and-jenkins/
-## better controllers resources
+#### better controllers resources
 https://laravel.com/docs/5.5/routing#route-model-binding
 https://laravel.com/docs/5.5/eloquent-resources
 https://laravel.com/docs/5.5/validation#creating-form-requests
-## response time resources
+#### response time resources
 https://laravel.com/docs/5.5/queues
 https://laravel.com/docs/5.5/eloquent-relationships#eager-loading
 https://blog.frankdejonge.nl/parallelise-synchronous-business-processes/
-## better code resources
+#### better code resources
 https://laravel.com/docs/5.5/errors#report-method
 https://laravel.com/docs/5.5/errors#render-method
 https://laravel.com/docs/5.5/errors#renderable-exceptions
