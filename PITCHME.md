@@ -22,7 +22,7 @@ $speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->roles = ['Full Stack Developer', 'DevOps'];
 $speaker->wannaBe = 'System architect';
 $speaker->talkSpeed = 1.2;
-$speaker->start();
+$speaker->save();
 ```
 +++
 # why laravel
@@ -187,9 +187,9 @@ foreach($books as $book){
 ## morph relations
 #### Morphable model (Actual 'base' implementation)
 ```php
-class Log extends Model
+class Event extends Model
 {
-    public function loggable()
+    public function eventable()
     {
         return $this->morphTo();
     }
@@ -205,23 +205,23 @@ class Log extends Model
 ## morph relations
 #### Trait (Apply to model)
 ```php
-trait Loggable
+trait Eventable
 {
-    public function log($action, $payload = null)
+    public function event($action, $payload = null)
     {
-        $log = new Log();
-        $log->action = $action;
+        $event = new Event();
+        $event->action = $action;
         // Additional data that doesn't fit the action
-        $log->payload = $payload;
+        $event->payload = $payload;
         // Snapshot the model to have a backtrace if needed
-        $log->snapshot = $this->toArray();
-        $log->ip_address = request()->ip();
-        $log->loggable()->associate($this);
+        $event->snapshot = $this->toArray();
+        $event->ip_address = request()->ip();
+        $event->eventable()->associate($this);
         $user = \Auth::user();
         if ($user) {
-            $log->user()->associate($user);
+            $event->user()->associate($user);
         }
-        $log->saveOrFail();
+        $event->saveOrFail();
     }
 }
 ```
@@ -229,8 +229,8 @@ trait Loggable
 ## morph relations
 #### example usage
 ```php
-// $reservation is an istance of a class that has the 'Loggable' trait
-$reservation->log('UPDATED');
+// $reservation is an istance of a class that has the 'Eventable' trait
+$reservation->event('UPDATED');
 ```
 +++
 

@@ -13,7 +13,7 @@ $speaker->occupation = 'Technical lead @ designbrothers';
 $speaker->roles = ['Full Stack Developer', 'DevOps'];
 $speaker->wannaBe = 'System architect';
 $speaker->talkSpeed = 1.2;
-$speaker->start();
+$speaker->save();
 ```
 +++
 # why laravel
