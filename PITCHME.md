@@ -28,7 +28,7 @@ $speaker->start();
 # why laravel
 <p class="fragment text-left text-07">PHP</p>
 <p class="fragment text-left text-07">Vibrant community</p>
-<p class="fragment text-left text-07">Wonderfull  documentation</p>
+<p class="fragment text-left text-07">Wonderfull documentation</p>
 <p class="fragment text-left text-07">Great foundation for building REST api</p>
 
 ---
@@ -37,11 +37,11 @@ $speaker->start();
 <p class="fragment text-left text-07">Built software with colleagues, not against them</p>
 <p class="fragment text-left text-07">Balance technical debt and rapid development</p>
 <p class="fragment text-left text-07">Do not overthink, use prototypes to explore</p>
-<p class="fragment text-left text-07">Automate all the things</p>
 <p class="fragment text-left text-07">Document REST api with proper tools (Word is not a proper tool)</p>
 <p class="fragment text-left text-07">Use base classes</p>
 <p class="fragment text-left text-07">Use static analysis tools (eg.: sonarlint, phpspec, phpcs)</p>
 <p class="fragment text-left text-07">Set up a pipeline</p>
+<p class="fragment text-left text-07">Automate all the things</p>
 
 <span style="font-size:0.6em; color:gray">SIMPLE</span> |
 <span style="font-size:0.6em; color:gray">EXTENSIBLE</span> |
@@ -85,17 +85,18 @@ Route::get('api/users/{user}', function (App\Models\User $user) {
 ### Validation: Form requests
 #### Encapsulate validation and authorization logic
 ```php
-class BaseRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     public function authorize()
     {
-        return logicThatDecideIfTheRequestIsAuthorized();
+        return logicThatDecidesIfTheRequestIsAuthorized();
     }
 
     public function rules()
     {
         return [
            'id' => 'required|numeric',
+           'name' => 'required|string',
            ...
         ];
     }
@@ -106,7 +107,7 @@ class BaseRequest extends FormRequest
 ### Eloquent: API Resources
 #### Encapsulate formatting logic
 ```php
-class User extends Resource
+class UserResource extends Resource
 {
     public function toArray($request)
     {
@@ -122,7 +123,7 @@ class User extends Resource
 ### Example
 ```php
 Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $user) {
-    $request->convenienceMethod()
+    $request->convenienceMethod();
     return new UserResource($user);
 });
 ```
@@ -130,7 +131,7 @@ Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $
 @title[Response time]
 # Enhance response time
 
-![Happy developer](assets/img/4.png)
+![Response time](assets/img/4.png)
 +++
 
 ##### Rules of thumb for better response time
@@ -165,8 +166,6 @@ dispatch(new MyJob($payload));
 
 @title[Eloquent eager loading]
 ### Eloquent eager loading
-
-N+1 => 2
 ### Bad (N+1 queries)
 ```php
 $books = App\Book::get();
@@ -193,7 +192,7 @@ foreach($books as $book){
 <p class="fragment text-left text-07">When something goes wrong you can know why and what quickly</p>
 <p class="fragment text-left text-07">You can extend the behaviour of a component without breaking anything</p>
 <p class="fragment text-left text-07">You can swap 'services' implementations without touching the references (eg.: Dependency injection)</p>
-<p class="fragment text-left text-07">Every function encapsulate a SPECIFIC part of the logic and hides underlying implementation details</p>
+<p class="fragment text-left text-07">Every function (should) encapsulate a SPECIFIC part of the logic and hides underlying implementation details</p>
 <p class="fragment text-left text-07">Respect the standards (eg.: editorconfig)</p>
 
 +++
@@ -335,6 +334,7 @@ if (date('U', strtotime($this->start)) > $now || date('U', strtotime($this->end)
 ```
 +++
 ```php
+\DB::startTransaction();
 try {
     // Dangerous action
 } catch (ValidationException $e) {
@@ -373,7 +373,7 @@ if ($reservation->buildCurrentBooking()) {
 # Questions?
 ---
 @title[Resources]
-#### resources
+#### pipeline resources
 https://bjurr.com/continuous-integration-with-bitbucket-server-and-jenkins/
 #### better controllers resources
 https://laravel.com/docs/5.5/routing#route-model-binding

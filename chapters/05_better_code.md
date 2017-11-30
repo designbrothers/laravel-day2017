@@ -7,7 +7,7 @@
 <p class="fragment text-left text-07">When something goes wrong you can know why and what quickly</p>
 <p class="fragment text-left text-07">You can extend the behaviour of a component without breaking anything</p>
 <p class="fragment text-left text-07">You can swap 'services' implementations without touching the references (eg.: Dependency injection)</p>
-<p class="fragment text-left text-07">Every function encapsulate a SPECIFIC part of the logic and hides underlying implementation details</p>
+<p class="fragment text-left text-07">Every function (should) encapsulate a SPECIFIC part of the logic and hides underlying implementation details</p>
 <p class="fragment text-left text-07">Respect the standards (eg.: editorconfig)</p>
 
 +++

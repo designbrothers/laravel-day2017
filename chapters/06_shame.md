@@ -9,6 +9,7 @@ if (date('U', strtotime($this->start)) > $now || date('U', strtotime($this->end)
 ```
 +++
 ```php
+\DB::startTransaction();
 try {
     // Dangerous action
 } catch (ValidationException $e) {

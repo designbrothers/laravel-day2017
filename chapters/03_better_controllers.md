@@ -33,17 +33,18 @@ Route::get('api/users/{user}', function (App\Models\User $user) {
 ### Validation: Form requests
 #### Encapsulate validation and authorization logic
 ```php
-class BaseRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     public function authorize()
     {
-        return logicThatDecideIfTheRequestIsAuthorized();
+        return logicThatDecidesIfTheRequestIsAuthorized();
     }
 
     public function rules()
     {
         return [
            'id' => 'required|numeric',
+           'name' => 'required|string',
            ...
         ];
     }
@@ -54,7 +55,7 @@ class BaseRequest extends FormRequest
 ### Eloquent: API Resources
 #### Encapsulate formatting logic
 ```php
-class User extends Resource
+class UserResource extends Resource
 {
     public function toArray($request)
     {
@@ -70,7 +71,7 @@ class User extends Resource
 ### Example
 ```php
 Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $user) {
-    $request->convenienceMethod()
+    $request->convenienceMethod();
     return new UserResource($user);
 });
 ```

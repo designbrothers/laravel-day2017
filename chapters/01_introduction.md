@@ -19,5 +19,5 @@ $speaker->start();
 # why laravel
 <p class="fragment text-left text-07">PHP</p>
 <p class="fragment text-left text-07">Vibrant community</p>
-<p class="fragment text-left text-07">Wonderfull  documentation</p>
+<p class="fragment text-left text-07">Wonderfull documentation</p>
 <p class="fragment text-left text-07">Great foundation for building REST api</p>
