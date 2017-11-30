@@ -13,14 +13,6 @@
 ### Queues
 
 ```php
-namespace App\Jobs;
-
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-
 class MyJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -38,7 +30,7 @@ class MyJob implements ShouldQueue
     }
 }
 
-dispatch(new MyJob);
+dispatch(new MyJob($payload));
 ```
 +++
 
@@ -46,7 +38,19 @@ dispatch(new MyJob);
 ### Eloquent eager loading
 
 N+1 => 2
-
+### Bad (N+1 queries)
+```php
+$books = App\Book::get();
+foreach($books as $book){
+    // Just to trigger eloquent relationship loader
+    $book->author;
+}
+```
+### Good (2 queries)
 ```php
 $books = App\Book::with('author')->get();
+foreach($books as $book){
+    // Just to trigger eloquent relationship loader
+    $book->author;
+}
 ```

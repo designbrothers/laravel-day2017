@@ -142,14 +142,6 @@ Route::get('api/users/{user}', function (UserRequest $request, App\Models\User $
 ### Queues
 
 ```php
-namespace App\Jobs;
-
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-
 class MyJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -167,7 +159,7 @@ class MyJob implements ShouldQueue
     }
 }
 
-dispatch(new MyJob);
+dispatch(new MyJob($payload));
 ```
 +++
 
@@ -175,9 +167,21 @@ dispatch(new MyJob);
 ### Eloquent eager loading
 
 N+1 => 2
-
+### Bad (N+1 queries)
+```php
+$books = App\Book::get();
+foreach($books as $book){
+    // Just to trigger eloquent relationship loader
+    $book->author;
+}
+```
+### Good (2 queries)
 ```php
 $books = App\Book::with('author')->get();
+foreach($books as $book){
+    // Just to trigger eloquent relationship loader
+    $book->author;
+}
 ```
 ---
 @title[Write better code]
@@ -187,10 +191,13 @@ $books = App\Book::with('author')->get();
 +++
 
 ##### Rules of thumb for better code quality and developing experience
-<p class="fragment text-left text-07">Every function encapsulate a SPECIFIC part of the logic</p>
-<p class="fragment text-left text-07">Hides implementation details</p>
-<p class="fragment text-left text-07">Respect the standards</p>
+<p class="fragment text-left text-07">Every function encapsulate a SPECIFIC part of the logic and hides underlying implementation details</p>
+<p class="fragment text-left text-07">Respect the standards (eg.: editorconfig)</p>
+
+##### Rules of thumb metrics of good code
 <p class="fragment text-left text-07">When something goes wrong you can know why and what quickly</p>
+<p class="fragment text-left text-07">You can extend the behaviour of a component without breaking anything</p>
+<p class="fragment text-left text-07">You can swap 'services' implementations without touching the references (eg.: Dependency injection)</p>
 
 +++
 @title[morph paradigm]
