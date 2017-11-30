@@ -109,7 +109,7 @@ class LangMiddleware
 +++
 @title[Exception rendering]
 ## Exception rendering
-
+### not all errors are the same
 ```
 /*
  * @see 403 AuthorizationException (Forbidden)
