@@ -18,7 +18,7 @@
 ### Bad
 ```php
 Route::get('api/users/{user}', function () {
-    $user = Request::route('user');
+    $user = User::find(Request::route('user'));
     // Do something with the user
 });
 ```
