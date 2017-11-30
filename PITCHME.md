@@ -67,6 +67,14 @@ doing is the best way of thinking
 @title[Eloquent model binding]
 ### Routing: Eloquent model binding
 #### Encapsulate path parameter fetch
+### Bad
+```php
+Route::get('api/users/{user}', function () {
+    $user = Request::route('user');
+    // Do something with the user
+});
+```
+### Good
 ```php
 Route::get('api/users/{user}', function (App\Models\User $user) {
     // Do something with the user
