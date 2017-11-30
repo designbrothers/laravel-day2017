@@ -12,7 +12,7 @@
 
 +++
 @title[morph paradigm]
-## morph paradigm
+## morph relations
 #### Morphable model (Actual 'base' implementation)
 ```php
 class Log extends Model
@@ -30,7 +30,7 @@ class Log extends Model
 ```
 +++
 @title[morph paradigm]
-## morph paradigm
+## morph relations
 #### Trait (Apply to model)
 ```php
 trait Loggable
@@ -39,7 +39,9 @@ trait Loggable
     {
         $log = new Log();
         $log->action = $action;
+        // Additional data that doesn't fit the action
         $log->payload = $payload;
+        // Snapshot the model to have a backtrace if needed
         $log->snapshot = $this->toArray();
         $log->ip_address = request()->ip();
         $log->loggable()->associate($this);
@@ -50,6 +52,13 @@ trait Loggable
         $log->saveOrFail();
     }
 }
+```
++++
+## morph relations
+#### example usage
+```php
+// $reservation is an istance of a class that has the 'Loggable' trait
+$reservation->log('UPDATED');
 ```
 +++
 
