@@ -1,4 +1,4 @@
-@title[Questions]
+@title[Resources]
 #### resources
 https://bjurr.com/continuous-integration-with-bitbucket-server-and-jenkins/
 #### better controllers resources
