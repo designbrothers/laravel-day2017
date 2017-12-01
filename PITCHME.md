@@ -368,6 +368,11 @@ if ($reservation->buildCurrentBooking()) {
 @title[Questions]
 # Questions?
 ---
+@title[QR]
+![QR](assets/img/qr.png)
+https://joind.in/talk/0ec2f
+
+---
 @title[Resources]
 #### pipeline resources
 https://bjurr.com/continuous-integration-with-bitbucket-server-and-jenkins/
