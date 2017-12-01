@@ -230,7 +230,7 @@ trait Eventable
 #### example usage
 ```php
 // $reservation is an istance of a class that has the 'Eventable' trait
-$reservation->event('UPDATED');
+$reservation->event('EXTENDED');
 ```
 +++
 
