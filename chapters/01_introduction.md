@@ -1,8 +1,4 @@
 @title[Who and What]
-### about the project
-<p class="text-left text-05">Build a framework for sharing mobility businesses that can allow any sharing strategy of any (connected) vehicle without imposing business decisions.</p>
-<p class="text-left text-05">Current solutions are very bulky, with complex api, not white-label and with limited functionality.</p>
- 
 ### about me
 ```php
 $speaker = new Nerd();
@@ -15,6 +11,9 @@ $speaker->wannaBe = 'System architect';
 $speaker->talkSpeed = 1.2;
 $speaker->save();
 ```
+### about the project
+<p class="text-left text-05">Build a framework for sharing mobility businesses that can allow any sharing strategy of any (connected) vehicle without imposing business decisions.</p>
+<p class="text-left text-05">Current solutions are very bulky, with complex api, not white-label and with limited functionality.</p>
 +++
 # why laravel
 <p class="fragment text-left text-07">PHP</p>
